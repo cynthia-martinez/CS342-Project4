@@ -1,14 +1,17 @@
 import java.io.PrintWriter;
 import java.util.Scanner;
+
 /**
- * Name: Cynthia Martinez, Nathan He
- * Username: cmartine, nhe, favila
+ * Name: Cynthia Martinez, Nathan He, Fernando Avila
+ * Username: cmartine
  * NetID: cmarti65, nhe3, favila6
  */
 
-public abstract class Answer {
 
+public abstract class Answer {
+    protected String label;
     protected Answer() {
+        label = "Answer";
     }
 
     protected Answer( Scanner sc ){

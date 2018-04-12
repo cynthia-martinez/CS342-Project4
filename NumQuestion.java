@@ -1,23 +1,26 @@
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class SAQuestion extends Question {
+public class NumQuestion extends Question {
 
+    protected double tolerance;
     /**
      * Constructor for SAQuestion
      *
      * @param t   the question
      * @param max max credit given
      */
-    SAQuestion(String t, double max) {
+    NumQuestion(String t, double max, double tol) {
         super(t, max);
+        label = "NumQuestion";
+        tolerance = tol;
     }
 
-    public SAQuestion(Scanner sc) {
+    public NumQuestion(Scanner sc) {
         super(sc);
-        label = "SAQuestion";
-        rightAnswer = new SAAnswer(sc.nextLine());
-
+        label = "NumQuestion";
+        rightAnswer = new NumAnswer(sc.nextDouble());
+        tolerance = sc.nextDouble();
     }
 
     /**
@@ -26,18 +29,7 @@ public class SAQuestion extends Question {
      * @return an Answer
      */
     public Answer getNewAnswer() {
-        SAAnswer ans = new SAAnswer(" ");
-        return ans;
-    }
-
-    /**
-     * creates a new Answer object w/ given text and credit of 0.0
-     *
-     * @param t answer text
-     * @return an Answer
-     */
-    public Answer getNewAnswer(String t) {
-        SAAnswer ans = new SAAnswer(t);
+        NumAnswer ans = new NumAnswer(0);
         return ans;
     }
 
@@ -50,10 +42,10 @@ public class SAQuestion extends Question {
         ScannerFactory in = new ScannerFactory();
         Scanner input = in.getKeyboardScanner();
         System.out.println("Please enter your answer: ");
-        String studAns = input.nextLine();
+        Double studAns = input.nextDouble();
 
         // sets up student answer
-        studentAnswer = getNewAnswer(studAns);
+        studentAnswer = new NumAnswer(studAns);
     }
 
     /**
@@ -82,8 +74,8 @@ public class SAQuestion extends Question {
     }
 
     public void restoreStudentAnswers(Scanner sc) {
-        if (sc.nextLine().equalsIgnoreCase("SAAnswer")) {
-            studentAnswer = new SAAnswer(sc.nextLine());
+        if (sc.nextLine().equalsIgnoreCase("NumAnswer")) {
+            studentAnswer = new NumAnswer(sc.nextDouble());
         }
     }
 }

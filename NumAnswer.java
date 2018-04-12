@@ -1,31 +1,28 @@
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class SAAnswer extends Answer {
-    protected String text;
-
+public class NumAnswer extends Answer{
+    double num;
     /**
      * Constructor for SAAnswer
      *
-     * @param t the question
+     * @param n the number answer
      */
-    public SAAnswer(String t) {
-        text = t;
-        label = "SAAnswer";
+    public NumAnswer(double n) {
+        label = "NumAnswer";
+        num = n;
     }
 
-    SAAnswer(Scanner sc) {
-
-
-        text = sc.nextLine();
-
+    NumAnswer(Scanner sc) {
+        label = "NumAnswer";
+        num = sc.nextDouble();
     }
 
     /**
      * Prints out the answer
      */
     public void print() {
-        System.out.println(text);
+        System.out.println(num);
     }
 
     /**
@@ -37,10 +34,10 @@ public class SAAnswer extends Answer {
     public double getCredit(Answer rightAns) {
 
         // checks if answer passed in is a multiple choice answer
-        if (rightAns instanceof SAAnswer) {
-            SAAnswer ans = (SAAnswer) rightAns;
+        if (rightAns instanceof NumAnswer) {
+            NumAnswer ans = (NumAnswer) rightAns;
             //checks if answer matches right answer (ignoring case)
-            if (text.equalsIgnoreCase(ans.text)) {
+            if (num == ans.num) {
                 return 1.00;
             }
         }
@@ -51,8 +48,7 @@ public class SAAnswer extends Answer {
 
     public void save(PrintWriter pr) {
         pr.println(this.label);
-        pr.println(this.text);
+        pr.println(this.num);
 
     }
-
 }
