@@ -3,14 +3,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Name: Cynthia Martinez
- * Username: cmartine
- * NetID: cmarti65
+ * Name: Cynthia Martinez, Nathan He, Fernando Avila
+ * Username: cmartine, nhe,
+ * NetID: cmarti65, nhe3,
  */
 
 public class Exam {
     private ArrayList<Question> questions;   // list of Questions
-    private String text;   // title/header of the exam
+    private String text;                     // title/header of the exam
 
     /**
      * Constructor for the Exam class
@@ -19,7 +19,6 @@ public class Exam {
     public Exam(String t) {
         text = t;
         questions = new ArrayList<Question>(); // Exam has no questions until added
-
     }
 
     public Exam(Scanner sc) {
@@ -31,7 +30,6 @@ public class Exam {
                 text = sc.nextLine();
                 debug = sc.nextLine();
             }
-
             while (sc.hasNextLine()) {
                 debug = sc.nextLine();
 
@@ -161,7 +159,6 @@ public class Exam {
         }
 
         return sum;
-
     }
 
 
@@ -183,7 +180,6 @@ public class Exam {
     }
 
     public void save(PrintWriter pr) {
-
         pr.println(text);
         for (Question q : questions) {
             pr.println("\n");
@@ -196,7 +192,6 @@ public class Exam {
         for (Question q : questions) {
             q.saveStudentAnswer(pr);
         }
-
     }
 
     public void restoreStudentAnswers(Scanner sc) {
@@ -213,6 +208,4 @@ public class Exam {
 
 
     }
-
-
 }

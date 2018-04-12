@@ -2,6 +2,12 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Name: Cynthia Martinez, Nathan He
+ * Username: cmartine, nhe, favila
+ * NetID: cmarti65, nhe3, favila6
+ */
+
 public class MCSAQuestion extends MCQuestion {
 
     /**
@@ -12,7 +18,6 @@ public class MCSAQuestion extends MCQuestion {
      */
     public MCSAQuestion(String t, double maxVal) {
         super(t, maxVal);
-
 
 
     }
@@ -60,7 +65,6 @@ public class MCSAQuestion extends MCQuestion {
      * gets answer from student input
      */
     public void getAnswerFromStudent() {
-
         // get user input for answer
         ScannerFactory in = new ScannerFactory();
         Scanner input = in.getKeyboardScanner();
@@ -82,7 +86,6 @@ public class MCSAQuestion extends MCQuestion {
             studentAnswer = null;
             System.out.println("Invalid Input");
         }
-
     }
 
     /**
@@ -102,7 +105,6 @@ public class MCSAQuestion extends MCQuestion {
         if (sc.nextLine().equalsIgnoreCase("MCSAQuestion")) {
             studentAnswer = new MCSAAnswer(sc.nextLine(), 0.00);
         }
-
 
     }
 

@@ -1,12 +1,10 @@
 import java.io.PrintWriter;
 import java.util.Scanner;
-
 /**
- * Name: Cynthia Martinez
- * Username: cmartine
- * NetID: cmarti65
+ * Name: Cynthia Martinez, Nathan He
+ * Username: cmartine, nhe, favila
+ * NetID: cmarti65, nhe3, favila6
  */
-
 
 public abstract class Answer {
 
