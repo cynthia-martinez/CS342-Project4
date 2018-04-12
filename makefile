@@ -1,7 +1,7 @@
 JCC = javac
 JFLAGS = -g
 
-default: Answer.class  MCAnswer.java MCSAAnswer.java SAAnswer.java MCMAAnswer.java NumAnswer.java Question.class  NumQuestion.java MCQuestion.java SAQuestion.java MCSAQuestion.java MCMAQuestion.java Exam.class ExamTester.class ExamTaker.class ScannerFactory.class
+default: Answer.class  MCAnswer.java MCSAAnswer.java SAAnswer.java MCMAAnswer.java NumAnswer.java Question.class  NumQuestion.java MCQuestion.java SAQuestion.java MCSAQuestion.java MCMAQuestion.java Exam.class ExamTester.class ExamBuilder.class ExamGrader.class ExamTaker.class ScannerFactory.class
 
 Answer.class: Answer.java
 	$(JCC) $(JFLAGS) Answer.java
@@ -33,6 +33,10 @@ ExamTester.class: ExamTester.java
 	$(JCC) $(JFLAGS) ExamTester.java
 ExamTaker.class: ExamTaker.java
 	$(JCC) $(JFLAGS) ExamTaker.java
+ExamGrader.class: ExamGrader.java
+	$(JCC) $(JFLAGS) ExamGrader.java
+ExamBuilder.class: ExamBuilder.java
+	$(JCC) $(JFLAGS) ExamBuilder.java
 ScannerFactory.class: ScannerFactory.java
 	$(JCC) $(JFLAGS) ScannerFactory.java
 clean:
