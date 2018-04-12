@@ -1,6 +1,11 @@
 
-\`Name: Cynthia Martinez
-NetID: cmarti65
+Names: Cynthia Martinez, Nathan He, Fernando Avila
+NetID: cmarti65, nhe3, favila6
+
+Parts
+Cynthia - examGrader
+Nathan - examBuilder
+Fernando - exam
 
 
 *****NOTE*****: My student answers do not save and I have not tested my restoring of student answers.
