@@ -1,7 +1,12 @@
 
-\`Name: Cynthia Martinez
-NetID: cmarti65
+Name: Cynthia Martinez, Nathan He, Fernando Avila
+NetID: cmarti65, nhe3, favila6
 
+Cynthia Martinez worked on: NumQuestion, NumAnswer, SAQuestion, SAAnswer, Answer, ExamTaker
+
+Nathan He worked on:ExamBuilder, Exam, Question, MCQuestion
+
+Fernando Avila worked on: MCAnswer, MCMAAnswer, MCMAQuestion,MCSAAnswer, MCSAQuestion, ScannerFactory, ExamGrader
 
 *****NOTE*****: My student answers do not save and I have not tested my restoring of student answers.
 ------------------------------------------------------------------------------------------------------
