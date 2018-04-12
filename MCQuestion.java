@@ -2,6 +2,12 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Name: Cynthia Martinez, Nathan He
+ * Username: cmartine, nhe, favila
+ * NetID: cmarti65, nhe3, favila6
+ */
+
 public abstract class MCQuestion extends Question {
 
     protected ArrayList<MCAnswer> answers;  // list of answers

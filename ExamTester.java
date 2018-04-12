@@ -5,15 +5,17 @@ import java.io.File;
 import java.util.Scanner;
 
 /**
- * Name: Cynthia Martinez
- * Username: cmartine
- * NetID: cmarti65
+ * Name: Cynthia Martinez, Nathan He
+ * Username: cmartine, nhe, favila
+ * NetID: cmarti65, nhe3, favila6
  */
 
 public class ExamTester {
     public static void main(String[] args) {
 
-        System.out.println("Name: Cynthia\nNetID: cmarti65\n");
+        System.out.println("Name: Cynthia Martinez\nNetID: cmarti65\n");
+        System.out.println("Name: Nathan He\nNetID: nhe3\n");
+        System.out.println("Name: Fernando Avila\nNetID:favila6 \n");
 
         File fRead = new File("exam.txt");
         File fWrite = new File("reorderedExam.txt");
