@@ -1,13 +1,17 @@
+import java.util.Scanner;
 /**
- * Name: Cynthia Martinez, Nathan He
- * Username: cmartine, nhe, favila
- * NetID: cmarti65, nhe3, favila6
+ * NAME : Fernando Avila
+ * NETID: favila6
  */
-
-public class MCSAAnswer extends MCAnswer {
-
-    public MCSAAnswer(String t, double credit) {
+public class MCSAAnswer extends MCAnswer 
+{
+    public MCSAAnswer(String t, double credit)
+    {
         super(t, credit);
     }
-
+    
+    public MCSAAnswer(Scanner sc)
+    {
+        super(sc);
+    }
 }

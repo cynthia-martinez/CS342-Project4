@@ -1,32 +1,30 @@
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
- * Name: Cynthia Martinez, Nathan He
- * Username: cmartine, nhe, favila
- * NetID: cmarti65, nhe3, favila6
+ * NAME : Fernando Avila
+ * NETID: favila6
  */
-
-public class MCSAQuestion extends MCQuestion {
-
+public class MCSAQuestion extends MCQuestion 
+{
     /**
      * Constructor for MCSA Question
      *
      * @param t      the question
      * @param maxVal credit for the question
      */
-    public MCSAQuestion(String t, double maxVal) {
+    public MCSAQuestion(String t, double maxVal) 
+    {
         super(t, maxVal);
-
-
     }
 
-    public MCSAQuestion(Scanner sc) {
+    public MCSAQuestion(Scanner sc) 
+    {
         super(sc);
         int numAns = Integer.parseInt(sc.nextLine()); // # of answers
         int count = 0;
-        while( count < numAns ){
+        while( count < numAns )
+        {
             String s = sc.nextLine();
             String num = s.substring(0,s.indexOf(" "));
             String t = s.substring(s.indexOf(" ")+1);
@@ -44,7 +42,8 @@ public class MCSAQuestion extends MCQuestion {
      *
      * @return an Answer
      */
-    public Answer getNewAnswer() {
+    public Answer getNewAnswer()
+    {
         MCSAAnswer ans = new MCSAAnswer(null, 0.0);
         return ans;
     }
@@ -56,7 +55,8 @@ public class MCSAQuestion extends MCQuestion {
      * @param credit credit for answer
      * @return an answer object
      */
-    public Answer getNewAnswer(String t, double credit) {
+    public Answer getNewAnswer(String t, double credit) 
+    {
         MCSAAnswer ans = new MCSAAnswer(t, credit);
         return ans;
     }
@@ -64,7 +64,8 @@ public class MCSAQuestion extends MCQuestion {
     /**
      * gets answer from student input
      */
-    public void getAnswerFromStudent() {
+    public void getAnswerFromStudent() 
+    {
         // get user input for answer
         ScannerFactory in = new ScannerFactory();
         Scanner input = in.getKeyboardScanner();
@@ -72,17 +73,28 @@ public class MCSAQuestion extends MCQuestion {
         String studAns = input.nextLine();
 
         // dependent on the answer will get appropriate answer for answer arraylist
-        if (studAns.equalsIgnoreCase("A")) {
+        if (studAns.equalsIgnoreCase("A")) 
+        {
             studentAnswer = answers.get(0);
-        } else if (studAns.equalsIgnoreCase("B")) {
+        } 
+        else if (studAns.equalsIgnoreCase("B")) 
+        {
             studentAnswer = answers.get(1);
-        } else if (studAns.equalsIgnoreCase("C")) {
+        } 
+        else if (studAns.equalsIgnoreCase("C")) 
+        {
             studentAnswer = answers.get(2);
-        } else if (studAns.equalsIgnoreCase("D")) {
+        } 
+        else if (studAns.equalsIgnoreCase("D")) 
+        {
             studentAnswer = answers.get(3);
-        } else if (studAns.equalsIgnoreCase("E")) {
+        } 
+        else if (studAns.equalsIgnoreCase("E")) 
+        {
             studentAnswer = answers.get(4);
-        } else {
+        } 
+        else 
+        {
             studentAnswer = null;
             System.out.println("Invalid Input");
         }
@@ -94,31 +106,34 @@ public class MCSAQuestion extends MCQuestion {
      *
      * @return value sum of points earned for a question
      */
-    public double getValue() {
-
+    public double getValue()
+    {
         return (super.getValue((MCAnswer) studentAnswer) * maxValue);
-
     }
 
-    public void restoreStudentAnswers(Scanner sc) {
-
-        if (sc.nextLine().equalsIgnoreCase("MCSAQuestion")) {
+    public void restoreStudentAnswers(Scanner sc)
+    {
+        if(sc.nextLine().equalsIgnoreCase("MCSAQuestion")) 
+        {
             studentAnswer = new MCSAAnswer(sc.nextLine(), 0.00);
         }
-
     }
 
-    public void save(PrintWriter pr) {
+    public void save(PrintWriter pr)
+    {
         pr.println("MCSAQuestion");
         super.save(pr);
 
-        if (answers.size() <= 5) {
+        if(answers.size() <= 5) 
+        {
             pr.println(answers.size());
-        } else {
+        } else 
+        {
             pr.println("5");
         }
 
-        for (Answer a : answers) {
+        for(Answer a : answers) 
+        {
             a.save(pr);
         }
     }

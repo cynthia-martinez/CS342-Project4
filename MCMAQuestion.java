@@ -1,16 +1,12 @@
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
- * Name: Cynthia Martinez, Nathan He
- * Username: cmartine, nhe, favila
- * NetID: cmarti65, nhe3, favila6
+ * NAME : Fernando Avila
+ * NETID: favila6
  */
-
-
-public class MCMAQuestion extends MCQuestion {
-
+public class MCMAQuestion extends MCQuestion 
+{
     protected ArrayList<Answer> studentAnswer;
     public double baseCredit;
 
@@ -20,20 +16,22 @@ public class MCMAQuestion extends MCQuestion {
      * @param t      the question
      * @param maxVal credit for the question
      */
-    public MCMAQuestion(String t, double maxVal, double baseCred) {
+    public MCMAQuestion(String t, double maxVal, double baseCred) 
+    {
         super(t, maxVal);
         baseCredit = baseCred;
         studentAnswer = new ArrayList<Answer>(1);
-
     }
 
-    public MCMAQuestion(Scanner sc) {
+    public MCMAQuestion(Scanner sc) 
+    {
         super(sc);
         baseCredit = Double.parseDouble(sc.nextLine());
         studentAnswer = new ArrayList<Answer>(1);
         int numAns = Integer.parseInt(sc.nextLine()); // # of answers
         int count = 0;
-        while( count < numAns ){
+        while(count < numAns)
+        {
             String s = sc.nextLine();
             String num = s.substring(0,s.indexOf(" "));
             String t = s.substring(s.indexOf(" ")+1);
@@ -47,106 +45,123 @@ public class MCMAQuestion extends MCQuestion {
     }
 
     /**
-     * creates and returns a new Answer object w/ null values
+     * Creates and returns a new Answer object with null values
      *
      * @return an Answer
      */
-    public Answer getNewAnswer() {
+    public Answer getNewAnswer() 
+    {
         MCMAAnswer ans = new MCMAAnswer(null, 0.0);
-
         return ans;
     }
 
     /**
-     * creates an Answer object with given text and credit
+     * Creates an Answer object with given text and credit
      *
      * @param t      answer text
      * @param credit credit for answer
      * @return an answer object
      */
-    public Answer getNewAnswer(String t, double credit) {
+    public Answer getNewAnswer(String t, double credit) 
+    {
         MCMAAnswer ans = new MCMAAnswer(t, credit);
         return ans;
     }
 
     /**
-     * gets answer from student input
+     * Gets answer from student input
      */
-    public void getAnswerFromStudent() {
-
-
+    public void getAnswerFromStudent() 
+    {
         // get user input for answer
         ScannerFactory in = new ScannerFactory();
         Scanner input = in.getKeyboardScanner();
         System.out.println("Please enter number of answers you will select: ");
         int numAns = Integer.parseInt(input.nextLine());
         int count = 0;
-        while (count < numAns) {
+        while(count < numAns) 
+        {
             System.out.println("Please enter your answer: ");
             String studAns = input.nextLine();
 
             // dependent on the answer will get appropriate answer for answer arraylist
-            if (studAns.equalsIgnoreCase("A")) {
+            if(studAns.equalsIgnoreCase("A")) 
+            {
                 studentAnswer.add(answers.get(0));
-            } else if (studAns.equalsIgnoreCase("B")) {
+            } 
+            else if(studAns.equalsIgnoreCase("B")) 
+            {
                 studentAnswer.add(answers.get(1));
-            } else if (studAns.equalsIgnoreCase("C")) {
+            } 
+            else if(studAns.equalsIgnoreCase("C")) 
+            {
                 studentAnswer.add(answers.get(2));
-            } else if (studAns.equalsIgnoreCase("D")) {
+            } 
+            else if(studAns.equalsIgnoreCase("D")) 
+            {
                 studentAnswer.add(answers.get(3));
-            } else if (studAns.equalsIgnoreCase("E")) {
+            } 
+            else if(studAns.equalsIgnoreCase("E")) 
+            {
                 studentAnswer.add(answers.get(4));
-            } else {
+            } 
+            else 
+            {
                 System.out.println("Invalid Input");
             }
 
             count++;
         }
-
     }
 
     /**
-     * calculates the number of points a question contributes based on
+     * Calculates the number of points a question contributes based on
      * answer selected
      *
      * @return value sum of points earned for a question + base credit
      */
-    public double getValue() {
-
+    public double getValue() 
+    {
         double sum = baseCredit;
-        for (Answer a : studentAnswer) {
+        for(Answer a : studentAnswer) 
+        {
             sum += super.getValue((MCAnswer) a);
         }
-
         return sum * maxValue;
-
     }
 
-    public void restoreStudentAnswers(Scanner sc) {
+    public void restoreStudentAnswers(Scanner sc) 
+    {
         int i = 0;
-        if (sc.nextLine().equalsIgnoreCase("MCMAQuestion")) {
+        if(sc.nextLine().equalsIgnoreCase("MCMAQuestion")) 
+        {
             int numAns = Integer.parseInt(sc.nextLine());
-            while (i < numAns) {
+            while(i < numAns) 
+            {
                 MCMAAnswer temp = new MCMAAnswer(sc.nextLine(), 0.00);
                 studentAnswer.add(temp);
                 i++;
             }
         }
-
     }
 
-    public void save(PrintWriter pr) {
+    public void save(PrintWriter pr) 
+    {
         pr.println("MCMAQuestion");
         super.save(pr);
         pr.println(this.baseCredit);
-        if (answers.size() <= 5) {
+        if(answers.size() <= 5) 
+        {
             pr.println(answers.size());
-        } else {
+        } 
+        else 
+        {
             pr.println("5");
         }
-        for (Answer a : answers) {
+        
+        for(Answer a : answers) 
+        {
             a.save(pr);
         }
     }
 }
-
