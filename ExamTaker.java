@@ -1,8 +1,12 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.File;
 import java.util.Date;
 import java.util.Scanner;
+import javax.swing.*;
+
 
 /**
  * Name: Cynthia Martinez, Nathan He, Fernando Avila
@@ -18,8 +22,29 @@ public class ExamTaker {
         System.out.println("Name: Fernando\nNetID: favila6\n");
         System.out.println("Name: Nathan\nNetID: nhe3\n");
 
-        File fRead = new File("exam.txt");
+        JFrame f =new JFrame();
+
+        JButton load_exam = new JButton("Load Exam");
+        JFileChooser fileChooser = new JFileChooser();
+
+        load_exam.setBounds(130,100,100, 40);
+
+        f.add(load_exam);
+        load_exam.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                fileChooser.showOpenDialog(f);
+                final File temp = fileChooser.getSelectedFile();
+            }
+        });
+
+        f.setSize(400,500);
+        f.setLayout(null);
+        f.setVisible(true);
+
+
         File fAns = new File("studAns.txt");
+        File fRead = new File("exam.txt");
+
 
         try {
             Scanner sc = new Scanner(fRead);
